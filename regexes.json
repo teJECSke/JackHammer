@@ -1,0 +1,29 @@
+{
+  "regexes": [
+    {
+      "name": "sshd",
+      "patterns": [
+        "Timeout before authentication for connection from (.*) to .*, pid = .*",
+        "Invalid user .* from (.*) port .*"
+      ]
+    },
+    {
+      "name": "sshd-session",
+      "patterns": [
+        "Connection reset by (.*) port .* \\[preauth\\]",
+        "Connection closed by (?:invalid|authenticating) user \\S+ (\\S+) port \\d+ \\[preauth\\]",
+        "Connection closed by (\\S+) port \\d+ \\[preauth\\]",
+        "Invalid user .* from (.*) port .*"
+      ]
+    },
+    {
+      "name": "nginx",
+      "patterns": [
+        "FastCGI sent in stderr: \"Primary script unknown\" while reading response header from upstream, client: (.*), server: .*, request: \".*\", host: \".*\"",
+        "\".*\" is not found \\(2: No such file or directory\\), client: (.*), server: .*, request: \".*\", host: \".*\"",
+        "open\\(\\) \".*\" failed \\(2: No such file or directory\\), client: (.*), server: .*, request: \".*\", host: \".*\"",
+        "directory index of \".*\" is forbidden, client: (.*), server: .*, request: \".*\", host: \".*\""
+      ]
+    }
+  ]
+}

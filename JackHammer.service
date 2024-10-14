@@ -1,0 +1,9 @@
+[Unit]
+Description=JackHammer
+After=nftables.service
+
+[Service]
+ExecStart=/usr/local/bin/JackHammer --rules /etc/JackHammer/regexes.json
+
+[Install]
+WantedBy=multi-user.target
