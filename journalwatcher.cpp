@@ -102,7 +102,7 @@ void JournalWatcher::processJournal()
         }
         QString message = QString::fromUtf8((const char *)d + 8, l - 8);
 
-        qDebug() << "Emitting journalEntryMatched:" << sysid << message;
+        //qDebug() << "Emitting journalEntryMatched:" << sysid << message;
         emit journalEntryMatched(sysid, message);
     }
 }
