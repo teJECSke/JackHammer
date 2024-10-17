@@ -54,19 +54,18 @@ bool Filter::loadRegexesFromJson(const QString& fileName)
 
 void Filter::onJournalEntryMatched(const QString& sysid, const QString& message)
 {
-    qDebug() << "Filter:" << sysid;
+    // qDebug() << "Filter:" << sysid;
     // Iterate over the map of regexes
     for (const auto& name : m_regexes.keys()) {
         if( name == sysid ) {
             const auto& regexList = m_regexes[name];    // Check if any of the regexes in the list match the message
             for (const auto& regex : regexList) {
-                qDebug() << "Trying:" << regex;
+                // qDebug() << "Trying:" << regex;
                 const auto& gyufa = regex.match(message);
                 if (gyufa.hasMatch()) {
                     // Extract the IP address from the message
                     QString ip = gyufa.captured(1);
-                    qWarning() << "BanJackHammering" << ip;
-
+                    qWarning() << "BanJackHammering" << ip << "Reason:" << regex;;
                     // Emit the signal to add the IP address to the set
                     emit addIpToSet(ip);
                     break;
